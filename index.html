@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distribuidora Resenha's - Cardápio & Pedidos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <h1>🍻 Distribuidora Resenha's</h1>
+            <p>O melhor do espetinho, comida e drinks para a sua resenha!</p>
+        </div>
+    </header>
+
+    <nav class="categories">
+        <button onclick="filterCategory('todos')" class="active">Todos</button>
+        <button onclick="filterCategory('espetinhos')">🍢 Espetinhos</button>
+        <button onclick="filterCategory('comidas')">🍔 Comidas</button>
+        <button onclick="filterCategory('drinks')">🍹 Drinks</button>
+    </nav>
+
+    <main class="menu-container" id="menu">
+        </main>
+
+    <div class="cart-footer" id="cart-footer" onclick="toggleCartModal()">
+        <p><i class="fas fa-shopping-cart"></i> Ver Carrinho (<span id="cart-count">0</span>)</p>
+        <p>Total: R$ <span id="cart-total-footer">0,00</span></p>
+    </div>
+
+    <div class="modal-overlay" id="cart-modal">
+        <div class="modal">
+            <span class="close-modal" onclick="toggleCartModal()">&times;</span>
+            <h2>🛒 Seu Pedido</h2>
+            <div id="cart-items">
+                </div>
+            <div class="cart-total-inside">
+                <h3>Total: R$ <span id="cart-total-modal">0,00</span></h3>
+            </div>
+            
+            <div class="delivery-form">
+                <input type="text" id="client-name" placeholder="Seu Nome" required>
+                <input type="text" id="client-address" placeholder="Endereço de Entrega" required>
+            </div>
+
+            <button class="btn-send" onclick="sendWhatsApp()">
+                <i class="fab fa-whatsapp"></i> Enviar Pedido via WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

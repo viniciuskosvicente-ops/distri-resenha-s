@@ -3,9 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feijoada da Casa - Sabor Tradicional</title>
+    <title>Delícias do Tarumã - Feijoada e Espetinhos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        /* Estilos Gerais */
+        :root {
+            --primary: #e67e22;
+            --secondary: #2c3e50;
+            --dark: #1a1a1a;
+            --light: #f9f9f9;
+            --success: #25d366; /* Cor oficial do WhatsApp */
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -14,240 +22,155 @@
         }
 
         body {
-            background-color: #fcf8f2;
-            color: #333;
+            background-color: var(--light);
+            color: var(--dark);
             line-height: 1.6;
         }
 
-        /* Cabeçalho */
         header {
-            background-color: #8B0000; /* Vermelho Escuro/Bordô */
-            color: #fff;
-            padding: 20px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1000') center/cover;
+            color: white;
             text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 60px 20px;
         }
 
         header h1 {
-            font-size: 1.8rem;
-            letter-spacing: 1px;
-        }
-
-        /* Seção Principal */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1608897013039-887f21d8c804?q=80&w=1000&auto=format&fit=crop') no-repeat center center/cover;
-            height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .hero h2 {
             font-size: 2.5rem;
+            color: var(--primary);
             margin-bottom: 10px;
-            color: #FFD700; /* Dourado */
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            max-width: 600px;
-        }
-
-        /* Botões */
-        .btn-pedido {
-            background-color: #25D366; /* Verde WhatsApp */
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 30px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            text-decoration: none;
-            transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        .btn-pedido:hover {
-            background-color: #128C7E;
-            transform: scale(1.05);
-        }
-
-        /* Seção do Cardápio */
         .container {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        .secao-titulo {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 2rem;
-            color: #8B0000;
-            position: relative;
-        }
-
-        .secao-titulo::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background-color: #FFD700;
-            margin: 10px auto 0;
-        }
-
-        .cardapio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .prato-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-            border: 1px solid #eee;
-        }
-
-        .prato-info {
+            max-width: 800px;
+            margin: 0 auto;
             padding: 20px;
         }
 
-        .prato-info h3 {
-            color: #8B0000;
-            margin-bottom: 10px;
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-info h3 {
             font-size: 1.4rem;
-        }
-
-        .preco {
-            font-size: 1.5rem;
-            color: #25D366;
-            font-weight: bold;
-            margin-top: 15px;
-        }
-
-        /* Lista de Acompanhamentos */
-        .acompanhamentos {
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px dashed #ddd;
-        }
-
-        .acompanhamentos p {
-            font-weight: bold;
-            color: #555;
+            color: var(--secondary);
             margin-bottom: 5px;
         }
 
-        .lista-itens {
-            list-style: none;
-        }
-
-        .lista-itens li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 5px;
+        .card-info p {
             color: #666;
+            font-size: 0.95rem;
         }
 
-        .lista-itens li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #25D366;
+        .price {
+            font-size: 1.5rem;
             font-weight: bold;
+            color: #27ae60;
+            white-space: nowrap;
+            margin-left: 15px;
         }
 
-        /* Rodapé */
-        footer {
-            background-color: #222;
-            color: #fff;
+        .menu-title {
+            margin: 30px 0 15px;
+            color: var(--secondary);
+            border-left: 5px solid var(--primary);
+            padding-left: 10px;
+        }
+
+        .info-section {
+            background: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
             text-align: center;
-            padding: 30px 20px;
-            margin-top: 60px;
+        }
+
+        .info-section p {
+            margin-bottom: 8px;
+        }
+
+        .btn-whatsapp {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: var(--success);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 25px;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #20ba5a;
+            transform: translateY(-2px);
+        }
+
+        .btn-whatsapp i {
+            font-size: 1.6rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #888;
             font-size: 0.9rem;
-        }
-
-        footer p {
-            margin-bottom: 10px;
-        }
-
-        .destaque-footer {
-            color: #FFD700;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>🍲 FEIJOADA DA CASA</h1>
+        <h1>Delícias do Tarumã</h1>
+        <p>O melhor sabor da região direto na sua mesa!</p>
     </header>
 
-    <section class="hero">
-        <h2>A Melhor Feijoada da Região</h2>
-        <p>Feita com ingredientes selecionados, carnes nobres e aquele tempero caseiro que você ama. Servida quentinha!</p>
-        <a href="#" class="btn-pedido" target="_blank">📲 Faça seu Pedido pelo WhatsApp</a>
-    </section>
-
-    <main class="container">
-        <h2 class="secao-titulo">Nosso Cardápio</h2>
+    <div class="container">
         
-        <div class="cardapio-grid">
-            
-            <div class="prato-card">
-                <div class="prato-info">
-                    <h3>Feijoada Tradicional (Individual)</h3>
-                    <p>Porção perfeita para matar a sua fome com o melhor sabor caseiro.</p>
-                    
-                    <div class="acompanhamentos">
-                        <p>Acompanhamentos inclusos:</p>
-                        <ul class="lista-itens">
-                            <li>Arroz Branco Soltinho</li>
-                            <li>Farofa Artesanal</li>
-                            <li>Couve Refogada na Hora</li>
-                            <li>Vinagrete Fresquinho</li>
-                            <li>Torresmo Super Crocante</li>
-                        </ul>
-                    </div>
-                    <div class="preco">R$ 35,00</div>
-                </div>
-            </div>
+        <h2 class="menu-title">Cardápio Principal</h2>
 
-            <div class="prato-card">
-                <div class="prato-info">
-                    <h3>Feijoada Família (Serve até 3 pessoas)</h3>
-                    <p>Ideal para aquele almoço de sábado ou domingo com quem você ama.</p>
-                    
-                    <div class="acompanhamentos">
-                        <p>Acompanhamentos inclusos (em porções maiores):</p>
-                        <ul class="lista-itens">
-                            <li>Arroz Branco Soltinho</li>
-                            <li>Farofa Artesanal</li>
-                            <li>Couve Refogada na Hora</li>
-                            <li>Vinagrete Fresquinho</li>
-                            <li>Torresmo Super Crocante</li>
-                        </ul>
-                    </div>
-                    <div class="preco">R$ 90,00</div>
-                </div>
+        <div class="card">
+            <div class="card-info">
+                <h3>Feijoada Completa</h3>
+                <p>Acompanha: Arroz soltinho, farofa artesanal, couve refogada, vinagrete fresco e torresmo crocante.</p>
             </div>
-
+            <div class="price">R$ 35,00</div>
         </div>
-    </main>
+
+        <div class="card">
+            <div class="card-info">
+                <h3>Espetinho Assado</h3>
+                <p>Saboroso, assado na brasa no ponto certo.</p>
+            </div>
+            <div class="price">R$ 6,00</div>
+        </div>
+
+        <div class="info-section">
+            <h3>Onde Estamos</h3>
+            <p>📍 Rua Cambará, 1173 - Alto Tarumã, Pinhais - PR</p>
+            <p>⏰ Venha retirar ou peça para entrega!</p>
+        </div>
+
+        <a href="https://wa.me/5541999704768?text=Olá! Vi o site e gostaria de fazer um pedido de Feijoada / Espetinho." target="_blank" class="btn-whatsapp">
+            <i class="fab fa-whatsapp"></i> Fazer Pedido via WhatsApp
+        </a>
+
+    </div>
 
     <footer>
-        <p>⏰ <span class="destaque-footer">Horário de Funcionamento:</span> Sábados e Domingos das 11h às 15h</p>
-        <p>📍 Atendemos sob encomenda e fazemos entregas na sua região.</p>
-        <p>&copy; 2026 Feijoada da Casa. Todos os direitos reservados.</p>
+        <p>&copy; 2026 Delícias do Tarumã. Todos os direitos reservados.</p>
     </footer>
 
 </body>

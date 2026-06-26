@@ -1,101 +1,254 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Distribuidora Resenha's</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feijoada da Casa - Sabor Tradicional</title>
+    <style>
+        /* Estilos Gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-<link rel="stylesheet" href="style.css">
+        body {
+            background-color: #fcf8f2;
+            color: #333;
+            line-height: 1.6;
+        }
 
+        /* Cabeçalho */
+        header {
+            background-color: #8B0000; /* Vermelho Escuro/Bordô */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+        }
+
+        /* Seção Principal */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1608897013039-887f21d8c804?q=80&w=1000&auto=format&fit=crop') no-repeat center center/cover;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #FFD700; /* Dourado */
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            max-width: 600px;
+        }
+
+        /* Botões */
+        .btn-pedido {
+            background-color: #25D366; /* Verde WhatsApp */
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-pedido:hover {
+            background-color: #128C7E;
+            transform: scale(1.05);
+        }
+
+        /* Seção do Cardápio */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .secao-titulo {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            color: #8B0000;
+            position: relative;
+        }
+
+        .secao-titulo::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: #FFD700;
+            margin: 10px auto 0;
+        }
+
+        .cardapio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .prato-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+        }
+
+        .prato-info {
+            padding: 20px;
+        }
+
+        .prato-info h3 {
+            color: #8B0000;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+
+        .preco {
+            font-size: 1.5rem;
+            color: #25D366;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        /* Lista de Acompanhamentos */
+        .acompanhamentos {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed #ddd;
+        }
+
+        .acompanhamentos p {
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        .lista-itens {
+            list-style: none;
+        }
+
+        .lista-itens li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        .lista-itens li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #25D366;
+            font-weight: bold;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        .destaque-footer {
+            color: #FFD700;
+        }
+    </style>
 </head>
 <body>
 
-<header>
-    <h1>🍻 Distribuidora Resenha's</h1>
-    <p>Comidas, Drinks e Espetinhos</p>
-</header>
+    <header>
+        <h1>🍲 FEIJOADA DA CASA</h1>
+    </header>
 
-<nav>
-    <a href="#cardapio">Cardápio</a>
-    <a href="#galeria">Galeria</a>
-    <a href="#localizacao">Localização</a>
-    <a href="#carrinho">Carrinho</a>
-</nav>
+    <section class="hero">
+        <h2>A Melhor Feijoada da Região</h2>
+        <p>Feita com ingredientes selecionados, carnes nobres e aquele tempero caseiro que você ama. Servida quentinha!</p>
+        <a href="#" class="btn-pedido" target="_blank">📲 Faça seu Pedido pelo WhatsApp</a>
+    </section>
 
-<section class="banner">
-    <h2>A Melhor Resenha da Cidade!</h2>
-</section>
+    <main class="container">
+        <h2 class="secao-titulo">Nosso Cardápio</h2>
+        
+        <div class="cardapio-grid">
+            
+            <div class="prato-card">
+                <div class="prato-info">
+                    <h3>Feijoada Tradicional (Individual)</h3>
+                    <p>Porção perfeita para matar a sua fome com o melhor sabor caseiro.</p>
+                    
+                    <div class="acompanhamentos">
+                        <p>Acompanhamentos inclusos:</p>
+                        <ul class="lista-itens">
+                            <li>Arroz Branco Soltinho</li>
+                            <li>Farofa Artesanal</li>
+                            <li>Couve Refogada na Hora</li>
+                            <li>Vinagrete Fresquinho</li>
+                            <li>Torresmo Super Crocante</li>
+                        </ul>
+                    </div>
+                    <div class="preco">R$ 35,00</div>
+                </div>
+            </div>
 
-<section id="cardapio">
-    <h2>Nosso Cardápio</h2>
+            <div class="prato-card">
+                <div class="prato-info">
+                    <h3>Feijoada Família (Serve até 3 pessoas)</h3>
+                    <p>Ideal para aquele almoço de sábado ou domingo com quem você ama.</p>
+                    
+                    <div class="acompanhamentos">
+                        <p>Acompanhamentos inclusos (em porções maiores):</p>
+                        <ul class="lista-itens">
+                            <li>Arroz Branco Soltinho</li>
+                            <li>Farofa Artesanal</li>
+                            <li>Couve Refogada na Hora</li>
+                            <li>Vinagrete Fresquinho</li>
+                            <li>Torresmo Super Crocante</li>
+                        </ul>
+                    </div>
+                    <div class="preco">R$ 90,00</div>
+                </div>
+            </div>
 
-    <div class="produtos">
-
-        <div class="produto">
-            <img src="imagens/espetinho.jpg">
-            <h3>Espetinho Bovino</h3>
-            <p>R$ 12,00</p>
-            <button onclick="adicionar('Espetinho Bovino',12)">
-                Adicionar
-            </button>
         </div>
+    </main>
 
-        <div class="produto">
-            <img src="imagens/drink.jpg">
-            <h3>Caipirinha Especial</h3>
-            <p>R$ 18,00</p>
-            <button onclick="adicionar('Caipirinha Especial',18)">
-                Adicionar
-            </button>
-        </div>
-
-        <div class="produto">
-            <img src="imagens/hamburguer.jpg">
-            <h3>X-Burguer Artesanal</h3>
-            <p>R$ 25,00</p>
-            <button onclick="adicionar('X-Burguer Artesanal',25)">
-                Adicionar
-            </button>
-        </div>
-
-    </div>
-</section>
-
-<section id="carrinho">
-    <h2>🛒 Carrinho</h2>
-
-    <ul id="lista"></ul>
-
-    <h3>Total: R$ <span id="total">0</span></h3>
-
-    <button onclick="enviarWhats()">
-        Finalizar Pedido
-    </button>
-</section>
-
-<section id="galeria">
-    <h2>Galeria</h2>
-
-    <div class="galeria">
-        <img src="imagens/espetinho.jpg">
-        <img src="imagens/drink.jpg">
-        <img src="imagens/hamburguer.jpg">
-    </div>
-</section>
-
-<section id="localizacao">
-    <h2>Localização</h2>
-
-    <iframe
-        src="https://maps.google.com/maps?q=Manuel%20Ribas&t=&z=13&ie=UTF8&iwloc=&output=embed">
-    </iframe>
-</section>
-
-<footer>
-    <p>© 2026 Distribuidora Resenha's</p>
-</footer>
-
-<script src="script.js"></script>
+    <footer>
+        <p>⏰ <span class="destaque-footer">Horário de Funcionamento:</span> Sábados e Domingos das 11h às 15h</p>
+        <p>📍 Atendemos sob encomenda e fazemos entregas na sua região.</p>
+        <p>&copy; 2026 Feijoada da Casa. Todos os direitos reservados.</p>
+    </footer>
 
 </body>
 </html>
